@@ -15,8 +15,8 @@ export const GET = async (
         const perPage = 10
         const offset = (page - 1) * perPage
         try{
-            const [results] = await db.query<RowDataPacket[]>('SELECT * FROM sakila.country order by last_update limit ? offset ? ', [perPage, offset])
-            const [countResult] = await db.query<RowDataPacket[]>('select count(*) as cnt from sakila.country')
+            const [results] = await db.query<RowDataPacket[]>('SELECT * FROM brd.board order by date DESC limit ? offset ? ', [perPage, offset]) // desc - 최신순
+            const [countResult] = await db.query<RowDataPacket[]>('select count(*) as cnt from brd.board')
             // 최대갯수 출력
             const totalCnt = countResult[0].cnt
             console.log(results)
