@@ -1,5 +1,6 @@
 'use client'
 
+import Link from "next/link"
 import { useParams } from "next/navigation"
 import React, {useEffect, useState} from 'react'
 
@@ -54,17 +55,21 @@ export default function Detail(){
 
     return(
         <>
+          <div className="max-w-7xl p-6 pt-0 mx-auto border">
             {isLoading && <Loading />}
             {
                 post.length > 0 && (
                     <>
-                        <p>제목 : {post && post[0]?.title}</p>
-                        <p>내용 : {post && post[0]?.content}</p>
+                        <p className="border-b pl-2 py-3">제목 : {post && post[0]?.title}</p>
+                        <p className="pt-3 pl-2">내용 : {post && post[0]?.content}</p>
+                        <div className="flex justify-end gap-x-3 pr-5 pt-10">
+                          <Link href={`/edit/${post[0]?.id}`} className='bg-blue-500 inline-block text-white px-4 py-2 rounded shadow-md hover:bg-blue-600 focus:outline-none'>수정</Link>
+                          <button className='bg-red-500 inline-block text-white px-4 py-2 rounded shadow-md hover:bg-red-600 focus:outline-none' onClick={()=>deletePost(post[0].id)}>삭제</button>
+                        </div>
                     </>
                 )
             }
-            <button className='bg-blue-500 inline-block text-white px-4 py-2 rounded shadow-md hover:bg-blue-600 focus:outline-none'>수정</button>
-            <button className='bg-red-500 inline-block text-white px-4 py-2 rounded shadow-md hover:bg-red-600 focus:outline-none' onClick={()=>deletePost(post[0].id)}>삭제</button>
+          </div>
         </>
     )
 }
