@@ -30,7 +30,7 @@ export default async function Edit(props:editProps){
             ?
                 <form method="post">
                     <div className="max-w-7xl mx-auto p-6 border">
-                        <div className="flex gap-x-2 pb-2 items-center">
+                        <div className="flex gap-x-2 pb-2 items-center">   
                             <p>작성자 : </p>
                             <input type="text" name="name"  defaultValue={results[0]?.author} className="shadow text-gray-700 text-sm border" />
                         </div>
@@ -49,7 +49,8 @@ export default async function Edit(props:editProps){
                     </div>
                 </form>
             : 
-                <NotData result={results} />}
+                <NotData result={results} />
+            }
         </>
     )
 }
