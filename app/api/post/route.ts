@@ -1,7 +1,5 @@
 import db from '@/db';
 import { NextRequest, NextResponse } from 'next/server';
-// import { NextApiRequest, NextApiResponse } from 'next';
-
 import { RowDataPacket } from 'mysql2/promise';
 
 export const GET = async (
