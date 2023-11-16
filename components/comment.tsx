@@ -50,6 +50,14 @@ export default function Comment(props: CommentProps){
         username : session?.user?.name ?? '',
         content : ''
     })
+    useEffect(()=>{
+        setFormData({
+            parentid : id,
+            userid : session?.user?.email ?? '',
+            username : session?.user?.name ?? '',
+            content : ''
+        })
+    }, [session?.user?.name, session?.user?.email, id])
     const  [totalComment, setTotalComment] = useState<CommentType[]>()
     
     const params = useParams()
@@ -97,7 +105,7 @@ export default function Comment(props: CommentProps){
                             const seconds = date.getSeconds().toString().padStart(2, '0')
                             const formatDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
                             return(
-                                <p>{formatDate}</p>
+                                <p key={i}>{formatDate}</p>
                             )
                         })
                     }
