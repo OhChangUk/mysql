@@ -105,7 +105,11 @@ export default function Comment(props: CommentProps){
                             const seconds = date.getSeconds().toString().padStart(2, '0')
                             const formatDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
                             return(
-                                <p key={i}>{formatDate}</p>
+                                <div key={i} className="flex justify-between">
+                                    <p className="basis-[30%]">{e.userid}</p>
+                                    <p className="basis-[30%]">{e.content}</p>
+                                    <p className="basis-[30%]">{formatDate}</p>
+                                </div>
                             )
                         })
                     }
