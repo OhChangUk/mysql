@@ -6,7 +6,8 @@ import React, { useState } from "react";
 interface formType{
     email : string,
     password : string,
-    name : string
+    name : string,
+    birthday : string
 }
 
 
@@ -15,7 +16,8 @@ export default function Register(){
     const [formData, setFormData] = useState<formType>({
         email : '',
         password : '',
-        name : ''
+        name : '',
+        birthday : ''
     })
 
     const [message, setMessage] = useState<string>("")
@@ -63,6 +65,7 @@ export default function Register(){
                 <input onChange={changeEvent} type="text" placeholder="이메일" name="email" required />
                 <input onChange={changeEvent} type="password" placeholder="비밀번호" name="password" required />
                 <input onChange={changeEvent} type="text" placeholder="닉네임" name="name" required />
+                <input onChange={changeEvent} type="text" placeholder="생년월일" name="birthday" required />
                 <button type="submit">가입</button>
             </form>
         </>
