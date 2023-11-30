@@ -40,7 +40,7 @@ async function Getip(){
 
 export default async function Detail({params}:{params? : {id?: number}}){
     const getIp = await Getip()
-    const userIp = getIp.data
+    const userIp = getIp.data.ip
     const postId = params?.id !== undefined ? params.id : 1;
     const [results] = await db.query<RowDataPacket[]>('select * from brd.board where id = ?', [postId])
     const post = results && results[0]

@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import AuthSession from './session'
 import Nav from '@/components/nav'
+import Visit from '@/components/etc/visit'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -25,6 +26,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthSession>
+          <Visit />
           <Nav />
           {children}
         </AuthSession>
